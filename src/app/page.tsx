@@ -12,6 +12,22 @@ export default function Home() {
   const upgrade = useAction(api.stripe.pay);
   const router = useRouter();
 
+  // This is a placeholder. Replace this with your actual logic to check if a user is logged in.
+  // const isLoggedIn = () => {
+  //   // Check if user is logged in
+  //   // This could be checking a token in local storage or a value in your state management
+  //   return true; // or false
+  // };
+
+  // useEffect(() => {
+  //   if (isLoggedIn()) {
+  //     router.push("/protected");
+  //   }
+  //   if (!isLoggedIn()) {
+  //     router.push("/");
+  //   }
+  // }, [router]);
+
   useEffect(() => {
     storeUser({});
   });
@@ -19,16 +35,14 @@ export default function Home() {
   const handleBuy = async () => {
     const url = await upgrade({});
     if (!url) return;
-    router.push(url);
+    router.push("/protected");
   };
 
   return (
     <section>
       <main className="flex min-h-screen flex-col justify-center items-center gap-4">
         <h1 className="text-4xl font-extrabold">Derek&apos;s Boilerplate</h1>
-        <p>
-          <Button onClick={handleBuy}>Buy</Button>
-        </p>
+        <p>{/* <Button onClick={handleBuy}>Buy</Button> */}</p>
       </main>
     </section>
   );

@@ -19,8 +19,11 @@ const NavBar = () => {
           <UserButton />
         </SignedIn>
         <SignedOut>
+          <Button variant="secondary">
+            <Link href="/sign-in">Sign In</Link>
+          </Button>
           <Button variant="default">
-            <SignInButton />
+            <Link href="/sign-up">Register</Link>
           </Button>
         </SignedOut>
       </div>
